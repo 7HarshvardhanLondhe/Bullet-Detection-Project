@@ -24,28 +24,7 @@ This project detects bullets in a video using a YOLO model and Kalman filtering.
 
 ---
 
-## 📁 Folder Structure
 
-project_bullet/
-├── backend/
-│ ├── app.py # Flask backend
-│ ├── yolo_model/ # YOLO model weights and config
-│ ├── output/
-│ │ ├── temp_output.mp4 # Processed video
-│ │ └── tracking_data.json # JSON output from tracking
-│ └── ...
-├── frontend/
-│ ├── public/
-│ ├── src/
-│ │ ├── components/
-│ │ └── App.js
-│ └── ...
-├── Bullet_Detection_Project.docx
-├── README.md
-└── package.json (React dependencies)
-
-yaml
-Copy code
 
 ---
 
