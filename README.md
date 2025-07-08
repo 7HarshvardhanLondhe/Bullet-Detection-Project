@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# 🔫 Bullet Detection Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project detects bullets in a video using a YOLO model and Kalman filtering. The system is built with a ReactJS frontend and a Python Flask backend. MongoDB is used for storing logs or detection data.
 
-## Available Scripts
+## 🧠 Project Features
 
-In the project directory, you can run:
+- 🎯 Bullet detection in uploaded video using YOLOv5
+- 📈 Tracking with Kalman Filter
+- 📂 Upload and preview video via React frontend
+- 📬 Backend API using Flask
+- 💾 Optional MongoDB integration for storing detection results
+- 📁 Organized output (video with bounding boxes + JSON tracking data)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Layer        | Tech                          |
+|--------------|-------------------------------|
+| Frontend     | ReactJS, Bootstrap            |
+| Backend      | Flask (Python)                |
+| Machine Learning | YOLOv5, OpenCV, Kalman Filter |
+| Database     | MongoDB (optional)            |
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📁 Folder Structure
 
-### `npm run build`
+project_bullet/
+├── backend/
+│ ├── app.py # Flask backend
+│ ├── yolo_model/ # YOLO model weights and config
+│ ├── output/
+│ │ ├── temp_output.mp4 # Processed video
+│ │ └── tracking_data.json # JSON output from tracking
+│ └── ...
+├── frontend/
+│ ├── public/
+│ ├── src/
+│ │ ├── components/
+│ │ └── App.js
+│ └── ...
+├── Bullet_Detection_Project.docx
+├── README.md
+└── package.json (React dependencies)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+yaml
+Copy code
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔧 Setup Instructions
 
-### `npm run eject`
+### 1. 📦 Backend Setup (Flask + YOLO)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+``bash
+cd backend
+python -m venv venv
+venv\Scripts\activate  # On Windows
+pip install -r requirements.txt
+python app.py
+Make sure YOLO weights (e.g., yolov5s.pt) are present in yolo_model/.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. 💻 Frontend Setup (React)
+``bash
+Copy code
+cd frontend
+npm install
+npm start
+This runs the React app at http://localhost:3000
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🧪 Usage
+Open the React app in browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Upload a video file.
 
-## Learn More
+Click Detect.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The backend processes it and returns:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Processed video with detected bullets.
 
-### Code Splitting
+JSON tracking data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🗃️ MongoDB 
+You can configure MongoDB connection inside the Flask backend (app.py) to log detections or user sessions.
