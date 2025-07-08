@@ -55,10 +55,15 @@ Copy code
 
 ``bash
 cd backend
+
 python -m venv venv
+
 venv\Scripts\activate  # On Windows
+
 pip install -r requirements.txt
+
 python app.py
+
 Make sure YOLO weights (e.g., yolov5s.pt) are present in yolo_model/.
 
 2. 💻 Frontend Setup (React)
